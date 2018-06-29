@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27825.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreIncompatibleDemo", "NetCoreIncompatibleDemo\NetCoreIncompatibleDemo.csproj", "{4343EBA3-BDF6-4528-A529-D33061FA674B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoOldAPM", "DemoOldAPM\DemoOldAPM.csproj", "{2CF2ADDE-22D7-41FF-9CA2-FA7386364989}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NefFrameworkConsole", "NefFrameworkConsole\NefFrameworkConsole.csproj", "{7E6A387A-A24A-4247-BE90-62F53640F50F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{4343EBA3-BDF6-4528-A529-D33061FA674B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4343EBA3-BDF6-4528-A529-D33061FA674B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4343EBA3-BDF6-4528-A529-D33061FA674B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CF2ADDE-22D7-41FF-9CA2-FA7386364989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CF2ADDE-22D7-41FF-9CA2-FA7386364989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CF2ADDE-22D7-41FF-9CA2-FA7386364989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CF2ADDE-22D7-41FF-9CA2-FA7386364989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E6A387A-A24A-4247-BE90-62F53640F50F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E6A387A-A24A-4247-BE90-62F53640F50F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E6A387A-A24A-4247-BE90-62F53640F50F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E6A387A-A24A-4247-BE90-62F53640F50F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
