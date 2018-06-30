@@ -11,13 +11,13 @@ namespace NefFrameworkConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Press any key to begin trying Old Delgate based APM operation on .Net Framework");
+            Console.WriteLine("Press any key to begin run Task based Async on .Net Framework 4.x");
             Console.ReadKey();
             var oldApm = new OldApmDemo();
 
             oldApm.DoOldApm();
 
-            Console.WriteLine("Wait....");
+            Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }
     }

@@ -1,13 +1,13 @@
 ﻿using System;
 using DemoOldAPM;
 
-namespace NetCoreIncompatibleDemo
+namespace NetFramework35Console
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Press any key to begin run Task based Async on .Net Core");
+            Console.WriteLine("Press any key to begin trying Old Delgate based APM operation on .Net Framework 3.5");
             Console.ReadKey();
             var oldApm = new OldApmDemo();
 

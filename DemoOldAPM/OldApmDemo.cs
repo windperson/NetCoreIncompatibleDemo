@@ -1,25 +1,36 @@
 ﻿using System;
 using System.Threading;
+#if !NET35
 using System.Threading.Tasks;
+
+#endif
 
 namespace DemoOldAPM
 {
     public class OldApmDemo
     {
         private delegate int AsyncDelegate(int input, TimeSpan waitTimeSpan);
+
+        private readonly TimeSpan _dummyAsyncWaitinTimeSpan = new TimeSpan(0, 0, 5);
+
         public void DoOldApm()
         {
+#if NET35
             try
             {
-                AsyncDelegate asyncDelegate = AsyncWaitThenReturn;
+                AsyncDelegate asyncDelegate = FakeAyncMethod;
 
-                IAsyncResult asyncResult = asyncDelegate.BeginInvoke(123, new TimeSpan(0, 0, 1), ar =>
+                IAsyncResult asyncResult = asyncDelegate.BeginInvoke(123, _dummyAsyncWaitinTimeSpan, ar =>
                 {
                     var result = asyncDelegate.EndInvoke(ar);
                     Console.WriteLine("result=" + result);
                 }, null);
 
-                SpinWait.SpinUntil(() => asyncResult.IsCompleted);
+                Console.WriteLine("Wait...");
+                do
+                {
+                    Thread.Sleep(100);
+                } while (!asyncResult.IsCompleted);
 
                 Console.WriteLine("Async Delegate Finished.");
 
@@ -27,12 +38,24 @@ namespace DemoOldAPM
             catch (PlatformNotSupportedException ex)
             {
                 Console.WriteLine("PlatformNotSupportedException=" + ex);
-            }
+            }         
+#else
+            var asyncTask = Task<int>.Factory.StartNew(() => FakeAyncMethod(123, _dummyAsyncWaitinTimeSpan));
+            Console.WriteLine("Wait...");
+            asyncTask.Wait();
+            var result = asyncTask.Result;
+            Console.WriteLine($"result={result}");
+            Console.WriteLine("Task based Async Finished.");
+#endif
         }
 
-        private static int AsyncWaitThenReturn(int x, TimeSpan waitTime)
+        private static int FakeAyncMethod(int x, TimeSpan waitTime)
         {
+#if !NET35
             Task.Delay(waitTime).Wait();
+#else
+            Thread.Sleep(waitTime);
+#endif
             return x;
         }
     }
