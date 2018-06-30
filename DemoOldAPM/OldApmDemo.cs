@@ -16,6 +16,7 @@ namespace DemoOldAPM
         public void DoOldApm()
         {
 #if NET35
+            Console.WriteLine("Start APM-based async.");
             try
             {
                 AsyncDelegate asyncDelegate = FakeAyncMethod;
@@ -40,6 +41,7 @@ namespace DemoOldAPM
                 Console.WriteLine("PlatformNotSupportedException=" + ex);
             }         
 #else
+            Console.WriteLine("Start Task-based async.");
             var asyncTask = Task<int>.Factory.StartNew(() => FakeAyncMethod(123, _dummyAsyncWaitinTimeSpan));
             Console.WriteLine("Wait...");
             asyncTask.Wait();
