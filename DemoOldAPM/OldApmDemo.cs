@@ -53,7 +53,7 @@ namespace DemoOldAPM
 
         private static int FakeAyncMethod(int x, TimeSpan waitTime)
         {
-#if !NET35
+#if NET35 != true
             Task.Delay(waitTime).Wait();
 #else
             Thread.Sleep(waitTime);
